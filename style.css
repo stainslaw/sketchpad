@@ -5,21 +5,12 @@
 
 #container {
     display: grid;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    grid-template-rows: repeat(var(--grid-rows), 10px);
-    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr)); 
-    margin: 70px;
-    flex-wrap: wrap;
-    border-radius: 10px;
-    padding: 50px 50px;
-
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-columns), minmax(0, 1fr));
 }
 
 .grid-item {
-    padding: 5px;
+    padding: 1em;
     border: 1px solid #ddd;
-    width: 15px;
-    height: 15px; 
+    text-align: center;
 }
