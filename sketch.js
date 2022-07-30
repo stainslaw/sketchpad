@@ -17,8 +17,19 @@ function makeGrid(rows, columns) {
         square.style.mindWidth = "5";
         square.style.overflow = "hidden";
         containerDiv.appendChild(square).className = "grid-item";
+
         square.addEventListener("mouseover", () => { 
-            square.style.backgroundColor = "black";
+
+           if (square.style.backgroundColor == "") {
+            let color = getRandomColor();
+            square.style.backgroundColor = color;
+            square.style.opacity = ".30";
+            return square.style.backgroundColor;
+           }
+           if ((square.style.backgroundColor !== "") && (square.style.opacity <= "0.70")) {
+            square.style.opacity = parseFloat(square.style.opacity) + .10;
+            return square.style.backgroundColor;
+           }
         })
     }
     createButton();
@@ -35,7 +46,7 @@ function createButton(){
     resetButton.addEventListener('click', () => {
         document.querySelectorAll(".grid-item").forEach(e => e.remove());
         let userGridInput = prompt("Please enter the number of grid squares per side (Max: 100): ");
-        if (userGridInput > 100 || userGridInput < 10) {
+        if (userGridInput > 100) {
             alert("ERROR! You specified a grid size larger than the max of 100.");
             return;
         }
@@ -43,6 +54,13 @@ function createButton(){
         columns = userGridInput;
         makeGrid(rows, columns);
     })
+}
+
+function getRandomColor () {
+    let o = Math.round;
+    let r = Math.random;
+    let s = 255;
+    return "rgb(" + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ')';
 }
 
 makeGrid(16, 16);
