@@ -21,12 +21,12 @@ function makeGrid(rows, columns) {
         square.addEventListener("mouseover", () => { 
 
            if (square.style.backgroundColor == "") {
-            let color = getRandomColor();
+            let color = getRandomColor(); 
             square.style.backgroundColor = color;
-            square.style.opacity = ".30";
+            square.style.opacity = ".31";
             return square.style.backgroundColor;
            }
-           if ((square.style.backgroundColor !== "") && (square.style.opacity <= "0.70")) {
+           if ((square.style.backgroundColor !== "") && (square.style.opacity <= "0.69")) {
             square.style.opacity = parseFloat(square.style.opacity) + .10;
             return square.style.backgroundColor;
            }
